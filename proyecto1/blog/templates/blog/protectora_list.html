@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title> Protectoras de animales </title>
+    </head>
+    <body>
+        <header>
+        <h2> protectoras </h2>
+        </header>
+        {% for protectora in protectoras_mostrar %}
+        <article>
+            <p>Nombre: {{ protectora.nombre }}</p>
+            <p>Descripcion: {{ protectora.tipo }}</p>
+            <p>Fecha de creacion: {{ protectora.fecha_creacion }}</p>
+        </article>
+        {% endfor %}
+
+        <a href="colaboradores"> Clic para ir a ver a los colaboradores </a>
+    </body>
+</html>

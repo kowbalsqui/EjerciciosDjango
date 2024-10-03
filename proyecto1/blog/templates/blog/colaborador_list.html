@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title> Colaboradores de los animales </title>
+    </head>
+    <body>
+        <header>
+        <h2> colaboradores </h2>
+        </header>
+        {% for colaborador in colaboradores_mostrar %}
+        <article>
+            <p>Nombre: {{ colaborador.nombre }}</p>
+            <p>Cargo: {{ colaborador.cargo }}</p>
+            <p>Fecha de entrada de la protectora: {{ colaborador.fecha_entrada_protectora }}</p>
+        </article>
+        {% endfor %}
+        <a href="animales"> Clic para volver a los animales </a>
+    </body>
+</html>
