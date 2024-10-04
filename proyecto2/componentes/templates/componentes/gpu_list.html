@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title> Ordenadores componentes </title>
+    </head>
+    <body>
+        <header>
+        <h2> GPU </h2>
+        </header>
+        {% for gpu in gpu_mostrar %}
+        <article>
+            <p>Nombre: {{ gpu.nombre }}</p>
+            <p>Descripcion: {{ gpu.descripcion }}</p>
+            <p>Precio: {{ gpu.precio }}</p>
+        </article>
+        {% endfor %}
+    </body>
+</html>

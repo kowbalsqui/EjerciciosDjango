@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title> Ordenadores componentes </title>
+    </head>
+    <body>
+        <header>
+        <h2> CPU </h2>
+        </header>
+        {% for cpu in cpu_mostrar %}
+        <article>
+            <p>Vendedor: {{ cpu.vendedor }}</p>
+            <p>Nombre: {{ cpu.nombre }}</p>
+            <p>Descripcion: {{ cpu.descripcion }}</p>
+            <p>Precio: {{ cpu.precio }}</p>
+        </article>
+        {% endfor %}
+    </body>
+</html>
