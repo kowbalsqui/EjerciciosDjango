@@ -35,7 +35,8 @@ class Cliente (models.Model):
     nombre = models.CharField(max_length=100)
     email = models.CharField(max_length=100)
     puntos = models.FloatField(default=3)
-    libros = models.ManyToManyField(Libro, through='Prestamos')
+    libros = models.ManyToManyField(Libro, through='Prestamos', related_name= "libross")
+    libros_favoritos = models.ManyToManyField(Libro, through= 'Libros_Preferidos', related_name= "Favoritos")
 
 class DatosClientes (models.Model):
     cliente = models.OneToOneField(Cliente, on_delete=models.CASCADE)
@@ -46,4 +47,7 @@ class DatosClientes (models.Model):
 class Prestamos (models.Model):
     libro = models.ForeignKey(Libro, on_delete=models.CASCADE)
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
-    fecha_prestamo = models.DateField()
+    
+class Libros_Preferidos (models.Model):
+    libro = models.ForeignKey(Libro, on_delete= models.CASCADE)
+    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
