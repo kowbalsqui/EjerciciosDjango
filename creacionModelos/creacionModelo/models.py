@@ -7,6 +7,18 @@ class Usuario(models.Model):
     contraseña = models.TextField(max_length=100)  # "contraseña" corregido
     fechaRegistro = models.DateField()
 
+
+# Modelo de Proyecto
+class Proyecto(models.Model):
+    nombre = models.TextField(max_length=100)
+    descripcion = models.TextField(max_length=200)
+    duracionEstimada = models.FloatField()
+    fechaInicio = models.DateField()
+    fechaFin = models.DateField()
+    
+    usuarioAsignado = models.ManyToManyField(Usuario, through='Usuario_Proyecto', related_name='proyectos_asignados')
+    creador = models.OneToOneField(Usuario, on_delete=models.CASCADE, related_name='proyectos_creados')
+
 # Modelo de Tarea
 class Tarea(models.Model):
     titulo = models.TextField(max_length=100)
@@ -26,19 +38,7 @@ class Tarea(models.Model):
     
     creador = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name='tareas_creadas')  # related_name para evitar conflictos
     usuariosAsignados = models.ManyToManyField(Usuario, through='Usuarios_Tareas', related_name='tareas_asignadas')
-
-# Modelo de Proyecto
-class Proyecto(models.Model):
-    nombre = models.TextField(max_length=100)
-    descripcion = models.TextField(max_length=200)
-    duracionEstimada = models.FloatField()
-    fechaInicio = models.DateField()
-    fechaFin = models.DateField()
-    
-    usuarioAsignado = models.ManyToManyField(Usuario, through='Usuario_Proyecto', related_name='proyectos_asignados')
-    creador = models.OneToOneField(Usuario, on_delete=models.CASCADE, related_name='proyectos_creados')
-    
-    tareas = models.ForeignKey(Tarea, on_delete=models.CASCADE)  # Cambiado a ManyToMany para reflejar que un proyecto tiene varias tareas
+    proyecto = models.ForeignKey(Proyecto, on_delete=models.CASCADE)  # Cambiado a ManyToMany para reflejar que un proyecto tiene varias tareas
 
 # Modelo de Etiqueta
 class Etiqueta(models.Model):

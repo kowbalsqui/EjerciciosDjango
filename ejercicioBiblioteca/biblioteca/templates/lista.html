@@ -1,0 +1,37 @@
+<html>
+    <head></head>
+    <body>
+        <h1>Django Girls</h1>
+
+        {%for libro in libro_mostrar%}
+            <div>
+                <h2>Nombre: {{libro.nombre}}</h2>
+                <p>Biblioteca: {{libro.biblioteca.nombre}}</p>
+                <h2>Autores</h2>
+                <ul>
+                    {%for autor in libros.autores.all%}
+                        <li>{{autor.nombre}}</li>
+                    {%endfor%}
+                </ul>
+                <p>Fecha de publicacion: {{libro.fecha_publicacion}}.
+                    <a href="{% url 'dame_libros_fecha' libro.fecha_publicacion.year libro.fecha_publicacion.month%}">Pulsa para ver libros del mismo año y mes</a> |
+                </p>
+                <h3>Idioma: {{ libro.get_idioma_display}} </h3>
+                <a href="{% url 'dame_libros_idioma' libro.tipo%}">Pulsa para ver libros del mismo idioma o Español</a> |
+                <p>Descripcion: {{ libro.descripcion }}<p>
+                <a href="{% url 'dame_libro' id_libro=libro.id%}">pulsa para ver mas detalle</a>
+                <br>
+                <ul>
+                    <li><a href="{% url 'dame_libros_biblioteca' 1 "leader"%}">Libros biblioteca 1 con filtro de texto</a></li>
+                </ul>
+                <br>
+                <h3>
+                    Ultimo cliente que se llevo el libro:
+                    <a href="{% url 'dame_ultimo_cliente_libro' libro.id %}">
+                        Pulsa para ver el ultimo cliente
+                    </a>
+                </h3>
+            </div>
+        {%endfor%}
+    </body>
+</html>

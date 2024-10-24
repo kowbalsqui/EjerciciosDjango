@@ -1,0 +1,16 @@
+<html>
+    <head></head>
+    <body>
+        <h1>Cliente</h1>
+
+        <div>
+            <h2>Nombre: {{ cliente.nombre }}</h2>
+            <h2>Email: {{ cliete.email }}</h2>
+            <h2>Puntos: {{ cliente.puntos }}</h2>
+        </div>
+        Cliente que tiene una media de puntos.
+                    <a href="{% url 'dame_agrupaciones_puntos_cliente' %}">
+                        Pulsa para ver las medias de los clientes
+                    </a>
+    </body>
+</html>
