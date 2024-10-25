@@ -1,0 +1,16 @@
+<html>
+    <head></head>
+    <body>
+        <h1>Listado de Usuaio con tareas</h1>
+        <br>
+        {% for usuario in usuarioTarea_mostrar %}
+        <div>
+            <h2>Nombre: {{ usuario.nombre }}</h2>
+            <h2>Correo electronico: {{ usuario.correoElectronico }}</h2>
+            <h2>contraseña: {{ usuario.contraseña }}</h2>
+            <h2>Fecha de resgistro:  {{ usuario.fechaRegistro }}</h2>
+            <br>
+        {% endfor %}
+        </div>
+    </body>
+</html>
