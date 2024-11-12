@@ -8,5 +8,4 @@ urlpatterns = [
     path('UsuarioTarea/listar/<int:tarea_id>', views.asignacionDeTarea, name= 'asignacionDeTarea'),
     path('Tareas/listarObservaciones/<str:texto>', views.tareaConObervacion, name= 'tareaConObervacion'),
     path('Tareas/listarEntreAñosyCompletadas/<int:año1>/<int:año2>', views.tareasCompletadaEntreAños, name = "tareasCompletadaEntreAños"),
-    path('Usuario/listarUltimoUsuarioComento')
 ]

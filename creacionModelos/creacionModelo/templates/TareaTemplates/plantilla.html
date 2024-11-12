@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load static %}
+    <title>Título de la página</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/EstiloTemplate.css' %}">
+    <script src="{% static 'javaScript/alert.js' %}"></script>
+  </head>
+  <body>
+    {% include "TareaTemplates/menu.html" %}
+    <!-- Contenido de la página -->
+    {% block cabecera %}
+    {% endblock %}
+
+    <img src="{% static 'imagenes/imagen1.webp' %}" alt="imagen de Django"/>
+
+    {% block contenido %}
+    {% endblock %}
+    <!-- Puedes agregar más elementos como imágenes, enlaces, formularios, etc. -->
+     {% include "TareaTemplates/pie.html" %}
+  </body>
+</html>

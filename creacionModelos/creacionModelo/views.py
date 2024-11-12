@@ -3,7 +3,7 @@ from .models import *
 
 # Create your views here.
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'TareaTemplates/plantilla.html')
 
 def lista_proyectos(request):
     proyectos = Proyecto.objects.select_related("creador").prefetch_related("usuarioAsignado")
