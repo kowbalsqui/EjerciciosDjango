@@ -1,0 +1,17 @@
+<div>
+    <h2>Titulo: {{ tareas.titulo|capfirst }}</h2>
+    <h2>Descripcion: {{ tareas.descripcion|cut: " " }}</h2>
+    <h2>Prioridad: {{ tareas.prioridad }}</h2>
+    <h2>Estado de la tarea: {{ tareas.estado }}</h2>
+    <h2>Completada:  {{ tareas.completada|center:"15" }}</h2>
+    <h2>Fecha de creacion: {{ tareas.fechaCreacion|date: "d-m-Y" }}</h2>
+    <h2>Hora de vencimiento: {{ tareas.horaVencimiento }}</h2>
+    <h2>Creador: {{ tareas.creador|make_list}}</h2>
+    <h2>Usuarios asignados: {{ tareas.usuariosAsignados}}</h2>
+    <br>
+        {% if tarea.prioridad > 10 %}
+            <h1>Esta tarea tiene mucha prioridad</h1>
+        {% elif tarea.prioridad > 0 %}
+            <h1>Esta puede aguantar un poquito</h1>
+        {% endif %}
+</div>

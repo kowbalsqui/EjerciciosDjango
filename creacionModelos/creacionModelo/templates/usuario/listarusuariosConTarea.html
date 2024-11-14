@@ -1,16 +1,11 @@
-<html>
-    <head></head>
-    <body>
-        <h1>Listado de Usuaio con tareas</h1>
-        <br>
-        {% for usuario in usuarioTarea_mostrar %}
-        <div>
-            <h2>Nombre: {{ usuario.nombre }}</h2>
-            <h2>Correo electronico: {{ usuario.correoElectronico }}</h2>
-            <h2>contraseña: {{ usuario.contraseña }}</h2>
-            <h2>Fecha de resgistro:  {{ usuario.fechaRegistro }}</h2>
-            <br>
-        {% endfor %}
-        </div>
-    </body>
-</html>
+{% extends "TareaTemplates/plantilla.html" %}
+
+{% block cabecera %}
+    <h1>Listado de Usuarios con Tareas</h1>
+{% endblock %}
+
+{% block contenido %}
+    {% for usuario in usuarioTarea_mostrar %}
+        {% include "usuario/usuarios.html" %}
+    {% endfor %}
+{% endblock %}

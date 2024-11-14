@@ -7,15 +7,6 @@
 
     {% block contenido %}
         {% for proyecto in proyectos_mostrar %}
-        <div>
-            <h2>Nombre: {{ proyecto.nombre }}</h2>
-            <h2>Descripcion: {{ proyecto.descripcion }}</h2>
-            <h2>Duracion estimada: {{ proyecto.duracionEstimada }}</h2>
-            <h2>Fecha de inicio: {{ proyecto.fechaInicio }}</h2>
-            <h2>Fecha de fin: {{ proyecto.fechaFin }}</h2>
-            <h2>Usuarios asignado: {{ proyecto.usuarioAsignado }}</h2>
-            <h2>Creador: {{ proyecto.creador }}</h2>
-            <br>
-        </div>
+            {% include "proyecto/proyectos.html" %}
         {% endfor %}
     {% endblock %}

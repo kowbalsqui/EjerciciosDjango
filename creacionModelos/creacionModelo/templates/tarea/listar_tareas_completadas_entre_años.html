@@ -1,21 +1,14 @@
-<html>
-    <head></head>
-    <body>
-        <h1>Listado de tareas completadas</h1>
-        <br>
+{% extends "TareaTemplates/plantilla.html" %}
+        
+        {% block cabecera %}
+        <h1>Listado de tareas completadas </h1>
+        {% endblock %}
+    
+        {% block contenido %}
         {% for tareas in tareas_mostrar %}
-        <div>
-            <h2>Titulo: {{ tareas.titulo }}</h2>
-            <h2>Descripcion: {{ tareas.descripcion }}</h2>
-            <h2>Prioridad: {{ tareas.prioridad }}</h2>
-            <h2>Estado de la tarea: {{ tareas.estado }}</h2>
-            <h2>Completada:  {{ tareas.completada }}</h2>
-            <h2>Fecha de creacion: {{ tareas.fechaCreacion }}</h2>
-            <h2>Hora de vencimiento: {{ tareas.horaVencimiento }}</h2>
-            <h2>Creador: {{ tareas.creador}}</h2>
-            <h2>Usuarios asignados: {{ tareas.usuariosAsignados}}</h2>
-            <br>
+            {%include "tarea/tareas.html" %}
+        {% empty %}
+            <h1>No hemos encontrado ningun resultado.</h1>
         {% endfor %}
-        </div>
-    </body>
-</html>
+        {% endblock %}
+        
